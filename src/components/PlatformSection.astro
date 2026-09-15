@@ -1,0 +1,64 @@
+---
+import ArrowUpRight from "@lucide/astro/icons/arrow-up-right";
+import Check from "@lucide/astro/icons/check";
+import { site } from "../data/content";
+---
+
+<section
+  class="section solution"
+  id="plataforma"
+  aria-labelledby="platform-title"
+>
+  <div class="container solution-grid">
+    <div class="solution-copy">
+      <span class="section-kicker">A PLATAFORMA</span>
+      <h2 id="platform-title">
+        Uma visão mais clara da operação, sem começar do zero.
+      </h2>
+      <p>
+        O DataDom captura dados do Domínio e organiza as informações que seu
+        escritório já produz em uma leitura útil para a rotina.
+      </p>
+      <ul class="check-list">
+        <li>
+          <span><Check aria-hidden="true" size={13} /></span> Importação automatizada
+          dos dados
+        </li>
+        <li>
+          <span><Check aria-hidden="true" size={13} /></span> Captura com referência
+          D-1
+        </li>
+        <li>
+          <span><Check aria-hidden="true" size={13} /></span> Relatórios e dashboards
+          gerenciais
+        </li>
+        <li>
+          <span><Check aria-hidden="true" size={13} /></span> Visão consolidada da
+          carteira
+        </li>
+      </ul>
+      <a
+        class="button button-dark"
+        href={site.officialUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        >Explorar o DataDom <ArrowUpRight aria-hidden="true" size={18} /></a
+      >
+    </div>
+    <div class="solution-media">
+      <div class="media-label">
+        <span class="pill-dot"></span> VISÃO DA CARTEIRA
+      </div>
+      <img
+        src="/assets/carteira-consolidada.png"
+        alt="Exemplo ilustrativo da carteira consolidada no DataDom"
+        width="1334"
+        height="572"
+        loading="lazy"
+      />
+      <small
+        >Imagem ilustrativa da interface. Dados da tela são demonstrativos.</small
+      >
+    </div>
+  </div>
+</section>

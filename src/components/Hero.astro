@@ -1,0 +1,58 @@
+---
+import ArrowRight from "@lucide/astro/icons/arrow-right";
+import ArrowUpRight from "@lucide/astro/icons/arrow-up-right";
+import { site } from "../data/content";
+---
+
+<section class="hero" id="inicio" aria-labelledby="hero-title">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <h1 id="hero-title">
+        Os dados estão no Domínio. <em>A visão pode estar na sua rotina.</em>
+      </h1>
+      <p>
+        Para quem está à frente de um escritório contábil, clareza importa. O
+        DataDom importa automaticamente os dados que você já produz e mostra a
+        carteira em relatórios e dashboards fáceis de acompanhar.
+      </p>
+      <div class="hero-actions">
+        <a
+          class="button button-primary"
+          href={site.officialUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Conhecer o DataDom <ArrowUpRight aria-hidden="true" size={18} />
+        </a>
+        <a class="button button-outline" href="#como-funciona">
+          Ver como funciona <ArrowRight aria-hidden="true" size={18} />
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img
+        class="hero-person"
+        src="/assets/profissional-datadom.webp"
+        alt="Imagem ilustrativa de uma profissional de contabilidade trabalhando no notebook"
+        width="1120"
+        height="1400"
+        fetchpriority="high"
+      />
+      <div class="hero-product">
+        <span>Visão financeira no DataDom</span>
+        <img
+          src="/assets/visao-financeira.png"
+          alt="Exemplo ilustrativo da visão financeira do DataDom"
+          width="1334"
+          height="572"
+        />
+        <small>Dados demonstrativos</small>
+      </div>
+    </div>
+  </div>
+  <div class="container journey-line" aria-label="Dos dados à visão">
+    <span>Dados no Domínio</span><span>Importação automática</span><span
+      >Visão da carteira</span
+    >
+  </div>
+</section>

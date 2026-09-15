@@ -1,0 +1,49 @@
+---
+import ArrowUpRight from "@lucide/astro/icons/arrow-up-right";
+import { site } from "../data/content";
+---
+
+<section
+  class="section steps"
+  id="como-funciona"
+  aria-labelledby="process-title"
+>
+  <div class="container">
+    <header class="section-intro centered">
+      <span class="section-kicker">COMO FUNCIONA</span>
+      <h2 id="process-title">Do dado à conversa que importa.</h2>
+      <p>
+        Um fluxo simples para que a tecnologia organize a informação e a equipe
+        continue no centro da decisão.
+      </p>
+    </header>
+    <div class="steps-grid">
+      <article>
+        <span>01</span><h3>O dado já existe</h3><p>
+          Seu escritório trabalha no Domínio, a origem das informações usadas
+          pelo DataDom.
+        </p>
+      </article>
+      <article>
+        <span>02</span><h3>A plataforma importa</h3><p>
+          O DataDom faz a captura automática e organiza os dados em relatórios.
+        </p>
+      </article>
+      <article>
+        <span>03</span><h3>A equipe enxerga</h3><p>
+          Dashboards ajudam a acompanhar a carteira e conversar com mais
+          contexto.
+        </p>
+      </article>
+    </div>
+    <div class="steps-action">
+      <a
+        class="button button-primary"
+        href={site.officialUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        >Conhecer a plataforma <ArrowUpRight aria-hidden="true" size={18} /></a
+      >
+    </div>
+  </div>
+</section>

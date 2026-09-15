@@ -1,0 +1,72 @@
+---
+import Seo from "../components/Seo.astro";
+import ScrollReveal from "../components/ScrollReveal.astro";
+import CampaignTracking from "../components/CampaignTracking.astro";
+import "../styles/font.css";
+import "../styles/global.css";
+import "../styles/landing.css";
+
+export interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  image = "/assets/visao-financeira.png",
+  jsonLd,
+} = Astro.props;
+const gtmId = import.meta.env.PUBLIC_GTM_ID?.trim() || "";
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    {
+      gtmId && (
+        <script
+          is:inline
+          set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',${JSON.stringify(gtmId)});`}
+        />
+      )
+    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#132840" />
+    <meta name="color-scheme" content="light" />
+    <link rel="icon" type="image/png" href="/assets/logo-datadom.png" />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/profissional-datadom.webp"
+      type="image/webp"
+      fetchpriority="high"
+    />
+    <Seo {title} {description} {image} {jsonLd} />
+  </head>
+  <body>
+    {
+      gtmId && (
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${encodeURIComponent(gtmId)}`}
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden"
+          />
+        </noscript>
+      )
+    }
+    <a class="skip-link" href="#conteudo-principal"
+      >Pular para o conteúdo principal</a
+    >
+    <slot name="header" />
+    <main id="conteudo-principal" tabindex="-1"><slot /></main>
+    <slot name="footer" />
+    <ScrollReveal />
+    <CampaignTracking />
+  </body>
+</html>

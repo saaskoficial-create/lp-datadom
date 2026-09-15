@@ -1,0 +1,44 @@
+---
+import AudienceSection from "../components/AudienceSection.astro";
+import ComparisonSection from "../components/ComparisonSection.astro";
+import FaqSection from "../components/FaqSection.astro";
+import FinalCta from "../components/FinalCta.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import PlatformSection from "../components/PlatformSection.astro";
+import ProcessSection from "../components/ProcessSection.astro";
+import ProductShowcase from "../components/ProductShowcase.astro";
+import RoutineSection from "../components/RoutineSection.astro";
+import { faqItems, site } from "../data/content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+---
+
+<BaseLayout
+  title={site.title}
+  description={site.description}
+  image="/assets/visao-financeira.png"
+  {jsonLd}
+>
+  <Header slot="header" />
+  <Hero />
+  <RoutineSection />
+  <PlatformSection />
+  <ProductShowcase />
+  <ProcessSection />
+  <ComparisonSection />
+  <AudienceSection />
+  <FaqSection />
+  <FinalCta />
+  <Footer slot="footer" />
+</BaseLayout>

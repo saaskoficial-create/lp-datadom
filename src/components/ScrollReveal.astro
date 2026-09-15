@@ -1,0 +1,36 @@
+<script>
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const elements = [
+      ...document.querySelectorAll<HTMLElement>(
+        ".section h2, .section-intro, .human-photo, .solution-media, .showcase-stage, .faq-items",
+      ),
+    ];
+    if (elements.length) {
+      elements.forEach((element, index) => {
+        element.classList.add("scroll-reveal-item");
+        element.style.setProperty(
+          "--scroll-reveal-delay",
+          `${Math.min(index % 4, 3) * 90}ms`,
+        );
+      });
+      document.documentElement.classList.add("scroll-reveal-ready");
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-scroll-reveal-visible");
+              observer.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -5% 0px" },
+        );
+        elements.forEach((element) => observer.observe(element));
+      } else {
+        elements.forEach((element) =>
+          element.classList.add("is-scroll-reveal-visible"),
+        );
+      }
+    }
+  }
+</script>

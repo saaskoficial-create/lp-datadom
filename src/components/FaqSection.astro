@@ -1,0 +1,30 @@
+---
+import ChevronDown from "@lucide/astro/icons/chevron-down";
+import { faqItems } from "../data/content";
+---
+
+<section class="section faq" id="duvidas" aria-labelledby="faq-title">
+  <div class="container faq-grid">
+    <header class="faq-intro">
+      <span class="section-kicker">DÚVIDAS FREQUENTES</span>
+      <h2 id="faq-title">O essencial para conhecer o DataDom.</h2>
+      <p>
+        Respostas diretas sobre o uso da plataforma e o que está confirmado no
+        briefing do produto.
+      </p>
+    </header>
+    <div class="faq-items">
+      {
+        faqItems.map((item, index) => (
+          <details open={index === 0}>
+            <summary>
+              {item.question}
+              <ChevronDown aria-hidden="true" size={20} />
+            </summary>
+            <p>{item.answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

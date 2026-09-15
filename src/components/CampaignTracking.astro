@@ -1,0 +1,23 @@
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const attribution = Object.fromEntries(
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]
+      .map((key) => [key, params.get(key)])
+      .filter(([, value]) => value),
+  );
+  document
+    .querySelectorAll<HTMLAnchorElement>('a[href^="https://datadom.com.br/"]')
+    .forEach((link) => {
+      link.addEventListener("click", () => {
+        const trackedWindow = window as Window & {
+          dataLayer?: Record<string, unknown>[];
+        };
+        trackedWindow.dataLayer = trackedWindow.dataLayer || [];
+        trackedWindow.dataLayer.push({
+          event: "datadom_official_cta_click",
+          cta_text: link.textContent?.trim(),
+          ...attribution,
+        });
+      });
+    });
+</script>

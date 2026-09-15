@@ -1,0 +1,25 @@
+---
+import ArrowUpRight from "@lucide/astro/icons/arrow-up-right";
+import { site } from "../data/content";
+---
+
+<section class="final-cta" id="conhecer-datadom" aria-labelledby="cta-title">
+  <div class="container final-grid">
+    <div>
+      <span class="section-kicker">PRONTO PARA VER MAIS?</span>
+      <h2 id="cta-title">
+        Mais clareza para o escritório. Mais contexto para cada conversa.
+      </h2>
+      <p>
+        Conheça a plataforma e fale com a equipe DataDom pelos canais oficiais.
+      </p>
+    </div>
+    <a
+      class="button button-light"
+      href={site.officialUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      >Ir para o site oficial <ArrowUpRight aria-hidden="true" size={18} /></a
+    >
+  </div>
+</section>

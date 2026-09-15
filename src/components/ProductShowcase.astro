@@ -1,0 +1,131 @@
+---
+import ArrowUpRight from "@lucide/astro/icons/arrow-up-right";
+import { showcaseTabs, site } from "../data/content";
+---
+
+<section
+  class="section showcase"
+  id="produto"
+  aria-labelledby="showcase-title"
+  data-showcase
+>
+  <div class="container">
+    <header class="section-intro showcase-intro">
+      <span class="section-kicker">POR DENTRO DO DATADOM</span>
+      <h2 id="showcase-title">
+        Informação útil, sem precisar procurar em toda a operação.
+      </h2>
+      <p>
+        Veja exemplos das telas que organizam o cenário financeiro, a carteira e
+        os indicadores. Os dados exibidos nas imagens são demonstrativos.
+      </p>
+    </header>
+    <div class="showcase-layout">
+      <div class="showcase-stage">
+        {
+          showcaseTabs.map((tab, index) => (
+            <figure
+              id={`panel-${tab.id}`}
+              role="tabpanel"
+              aria-labelledby={`tab-${tab.id}`}
+              data-showcase-panel={index}
+              hidden={index !== 0}
+            >
+              <div class="showcase-toolbar">
+                <>
+                  <i aria-hidden="true" />
+                  <span>DataDom · {tab.label}</span>
+                </>
+              </div>
+              <img
+                src={tab.image}
+                alt={tab.alt}
+                width="1334"
+                height="572"
+                loading="lazy"
+              />
+            </figure>
+          ))
+        }
+        <small
+          >Capturas ilustrativas da interface. Valores e empresas nas telas são
+          demonstrativos.</small
+        >
+      </div>
+      <div class="showcase-side">
+        <div
+          class="showcase-tabs"
+          role="tablist"
+          aria-label="Telas da plataforma"
+        >
+          {
+            showcaseTabs.map((tab, index) => (
+              <button
+                id={`tab-${tab.id}`}
+                type="button"
+                role="tab"
+                aria-selected={index === 0 ? "true" : "false"}
+                aria-controls={`panel-${tab.id}`}
+                tabindex={index === 0 ? "0" : "-1"}
+                data-showcase-tab={index}
+              >
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <strong>{tab.label}</strong>
+                <small>{tab.title}</small>
+              </button>
+            ))
+          }
+        </div>
+        <a
+          class="text-link"
+          href={site.officialUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Conhecer a plataforma completa <ArrowUpRight
+            aria-hidden="true"
+            size={18}
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document
+    .querySelectorAll<HTMLElement>("[data-showcase]")
+    .forEach((showcase) => {
+      const tabs = [
+        ...showcase.querySelectorAll<HTMLButtonElement>("[data-showcase-tab]"),
+      ];
+      const panels = [
+        ...showcase.querySelectorAll<HTMLElement>("[data-showcase-panel]"),
+      ];
+      const selectTab = (index: number, focus = false) => {
+        tabs.forEach((tab, tabIndex) => {
+          const selected = tabIndex === index;
+          tab.setAttribute("aria-selected", String(selected));
+          tab.tabIndex = selected ? 0 : -1;
+          panels[tabIndex].hidden = !selected;
+        });
+        if (focus) tabs[index].focus();
+      };
+      tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => selectTab(index));
+        tab.addEventListener("keydown", (event) => {
+          const keys = ["ArrowDown", "ArrowUp", "Home", "End"];
+          if (!keys.includes(event.key)) return;
+          event.preventDefault();
+          const next =
+            event.key === "Home"
+              ? 0
+              : event.key === "End"
+                ? tabs.length - 1
+                : (index + (event.key === "ArrowDown" ? 1 : -1) + tabs.length) %
+                  tabs.length;
+          selectTab(next, true);
+        });
+      });
+    });
+</script>
