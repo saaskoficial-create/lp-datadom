@@ -8,12 +8,13 @@ import { site } from "../data/content";
   <div class="container hero-grid">
     <div class="hero-copy">
       <h1 id="hero-title">
-        Os dados estão no Domínio. <em>A visão pode estar na sua rotina.</em>
+        Transforme os dados do Domínio em uma <em
+          >visão clara da sua carteira.</em
+        >
       </h1>
       <p>
-        Para quem está à frente de um escritório contábil, clareza importa. O
-        DataDom importa automaticamente os dados que você já produz e mostra a
-        carteira em relatórios e dashboards fáceis de acompanhar.
+        O DataDom importa os dados que seu escritório já produz e organiza
+        informações financeiras e indicadores em dashboards para acompanhar.
       </p>
       <div class="hero-actions">
         <a
@@ -30,24 +31,22 @@ import { site } from "../data/content";
       </div>
     </div>
     <div class="hero-visual">
-      <img
-        class="hero-person"
-        src="/assets/profissional-datadom.webp"
-        alt="Imagem ilustrativa de uma profissional de contabilidade trabalhando no notebook"
-        width="1120"
-        height="1400"
-        fetchpriority="high"
-      />
       <div class="hero-product">
-        <span>Visão financeira no DataDom</span>
+        <span class="hero-product-label"
+          >DataDom <span>· Visão financeira</span></span
+        >
         <img
-          src="/assets/visao-financeira.png"
+          src="/assets/visao-financeira.webp"
           alt="Exemplo ilustrativo da visão financeira do DataDom"
           width="1334"
           height="572"
+          fetchpriority="high"
+          decoding="async"
         />
-        <small>Dados demonstrativos</small>
       </div>
+      <small class="hero-demo-note"
+        >Exemplo da interface com dados demonstrativos.</small
+      >
     </div>
   </div>
   <div class="container journey-line" aria-label="Dos dados à visão">

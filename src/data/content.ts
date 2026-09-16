@@ -8,25 +8,25 @@ export const site = {
 
 export const showcaseTabs = [
   {
+    id: "indicadores",
+    label: "Indicadores e insights",
+    title: "Observe o que pede atenção.",
+    image: "/assets/indicadores-insights.webp",
+    alt: "Exemplo demonstrativo do painel de indicadores do DataDom",
+  },
+  {
     id: "financeira",
     label: "Visão financeira",
     title: "Leia o período em uma tela.",
-    image: "/assets/visao-financeira.png",
+    image: "/assets/visao-financeira.webp",
     alt: "Exemplo demonstrativo da visão financeira do DataDom",
   },
   {
     id: "carteira",
     label: "Carteira consolidada",
     title: "Enxergue o conjunto de empresas.",
-    image: "/assets/carteira-consolidada.png",
+    image: "/assets/carteira-consolidada.webp",
     alt: "Exemplo demonstrativo da carteira consolidada do DataDom",
-  },
-  {
-    id: "indicadores",
-    label: "Indicadores e insights",
-    title: "Observe o que pede atenção.",
-    image: "/assets/indicadores-insights.png",
-    alt: "Exemplo demonstrativo do painel de indicadores do DataDom",
   },
 ] as const;
 
@@ -44,7 +44,7 @@ export const faqItems = [
   {
     question: "Como os dados chegam à plataforma?",
     answer:
-      "Segundo o briefing, a captura e a importação dos dados são automáticas, com referência D-1.",
+      "A captura e a importação dos dados do Domínio são automáticas, com referência D-1.",
   },
   {
     question: "Que tipo de informação posso visualizar?",
@@ -59,6 +59,6 @@ export const faqItems = [
   {
     question: "Como conheço a plataforma e as condições comerciais?",
     answer:
-      "Acesse o site oficial da DataDom para ver os canais de contato. O briefing não informa uma oferta ou preço público para esta página.",
+      "Acesse o site oficial da DataDom para conhecer os canais de contato e solicitar as condições comerciais.",
   },
 ] as const;

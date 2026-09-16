@@ -1545,3 +1545,128 @@ h3,
   outline: 3px solid #eab342;
   outline-offset: 3px;
 }
+
+/* Product-led direction: keep the real interface, not an illustrative photo, in focus. */
+.hero-grid {
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(36px, 4.5vw, 72px);
+  min-height: 550px;
+  align-items: center;
+}
+.hero-copy {
+  padding: 64px 0;
+}
+.hero h1 {
+  font-size: clamp(42px, 4.25vw, 60px);
+  line-height: 1.08;
+  max-width: 570px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: #a77524;
+  background: none;
+  -webkit-text-fill-color: currentColor;
+}
+.hero-visual {
+  height: auto;
+  min-height: 470px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  margin: 0;
+}
+.hero-product {
+  position: relative;
+  left: auto;
+  bottom: auto;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dbe5ee;
+  border-radius: 16px;
+  box-shadow: 0 28px 68px rgba(18, 41, 67, 0.13);
+}
+.hero-product-label {
+  display: block;
+  padding: 5px 8px 13px;
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0;
+}
+.hero-product-label span {
+  color: #6d7b89;
+  font-weight: 600;
+}
+.hero-product img {
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #e8edf2;
+}
+.hero-demo-note {
+  display: block;
+  margin: 11px 2px 0;
+  text-align: right;
+  color: #718293;
+  font-size: 11px;
+}
+.journey-line {
+  padding-bottom: 24px;
+}
+.pain,
+.section {
+  padding-top: 84px;
+  padding-bottom: 84px;
+}
+.human-grid {
+  gap: clamp(32px, 4vw, 60px);
+}
+.human-photo img {
+  max-height: 390px;
+  object-fit: cover;
+}
+.scroll-reveal-ready .scroll-reveal-item {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 1000px) {
+  .hero-grid {
+    gap: 30px;
+    min-height: 0;
+  }
+  .hero-visual {
+    min-height: 0;
+  }
+}
+@media (max-width: 700px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .hero-copy {
+    padding: 45px 0 15px;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 9.5vw, 48px);
+  }
+  .hero-visual {
+    height: auto;
+    min-height: 0;
+    margin: 0;
+  }
+  .hero-product {
+    padding: 7px;
+  }
+  .hero-product-label {
+    font-size: 11px;
+    padding: 5px 6px 9px;
+  }
+  .journey-line {
+    margin-top: 25px;
+  }
+  .pain,
+  .section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
